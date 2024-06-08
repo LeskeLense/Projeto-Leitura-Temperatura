@@ -35,7 +35,7 @@ public class LoginController {
 		usuario = usuarioRepository.findByEmail(email);
 
 		if (usuario != null && usuario.getSenha().equals(senha)) {
-			return "redirect:/";
+			return "redirect:/temperatura";
 		} else {
 			model.addAttribute("error", "Email ou senha Incorretos");
 			return "login";
