@@ -4,8 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/stylesLogin.css">
 </head>
 <body>
     <h1>Login</h1>
+    <form id="loginForm">
+        <input type="hidden" id="loginId">
+        <label for="nome">e-mail:</label>
+        <input type="text" id="login" name="login" required>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+
+        <div id="formButtons">
+            <button type="submit" id="submitFormButton">Entrar</button>
+            <button type="button" id="voltarButton">Voltar</button>
+        </div>
+
+        <br></br>
+        <footer>
+            <p>&copy; 2024 Jubileu e Jubilau. Todos os direitos reservados.</p>
+        </footer>
+
 </body>
 </html>
