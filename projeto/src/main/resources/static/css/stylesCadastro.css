@@ -42,10 +42,7 @@ form#usuarioForm label {
     margin-bottom: 3px; 
 }
 
-form#usuarioForm input[type="text"],
-form#usuarioForm input[type="email"],
-form#usuarioForm input[type="password"],
-form#usuarioForm input[type="tel"] {
+.form-input {
     width: 100%;
     padding: 8px; 
     border: 1px solid #ccc;
@@ -54,15 +51,17 @@ form#usuarioForm input[type="tel"] {
     transition: border-color 0.3s;
 }
 
-form#usuarioForm input[type="text"]:focus,
-form#usuarioForm input[type="email"]:focus,
-form#usuarioForm input[type="password"]:focus,
-form#usuarioForm input[type="tel"]:focus {
+.form-input:focus {
     border-color: #5A67D8;
     outline: none;
 }
 
-form#usuarioForm button {
+#formButtons {
+    display: flex;
+    gap: 10px;
+}
+
+#formButtons button {
     padding: 8px 15px; 
     font-size: 0.9rem; 
     border: none;
@@ -71,21 +70,21 @@ form#usuarioForm button {
     transition: background-color 0.3s;
 }
 
-button#submitFormButton {
+#submitFormButton {
     background-color: #38A169;
     color: #fff;
 }
 
-button#submitFormButton:hover {
+#submitFormButton:hover {
     background-color: #2F855A;
 }
 
-button#voltarButton {
+#voltarButton {
     background-color: #4A5568;
     color: #fff;
 }
 
-button#voltarButton:hover {
+#voltarButton:hover {
     background-color: #2D3748;
 }
 
