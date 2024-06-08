@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/stylesHome.css">
 </head>
 <body>
-    <header>
+    <header class="main-header">
         <h1>Bem-vindo à Consulta de Temperatura</h1>
     </header>
 
@@ -15,13 +15,15 @@
         <div class="hero-content">
             <h2>Descubra a temperatura da sua região agora!</h2>
             <p>Obtenha informações precisas e atualizadas sobre a temperatura ambiente para planejar seu dia com confiança.</p>
-            <button type="button" id="fazerLogin">Fazer Login</button>
-            <p class="signup-link">Não possui uma conta? <a href="#" id="cadastrar">Cadastre-se</a></p>
+            <a href="/login" class="btn-link">
+                <button type="button" class="btn" id="fazerLogin">Fazer Login</button>
+            </a>
+            <p class="signup-link">Não possui uma conta? <a href="/cadastro" id="cadastrar">Cadastre-se</a></p>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Jubileu e Jubilau. Todos os direitos reservados.</p>
+    <footer class="main-footer">
+        <p>&copy; 2024 Projeto-Leitura-Temperatura. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>
