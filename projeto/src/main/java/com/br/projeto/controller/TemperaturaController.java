@@ -11,6 +11,8 @@ public class TemperaturaController {
     @RequestMapping(path="/temperatura", method=RequestMethod.GET)
     public String temperatura(Model model) {
 
+
+        
         return "temperatura";
     }
 }
