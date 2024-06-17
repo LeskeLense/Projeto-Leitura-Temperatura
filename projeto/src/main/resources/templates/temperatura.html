@@ -4,11 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temperatura</title>
+    <link rel="stylesheet" href="css/stylesTemperatura.css">
 </head>
 <body>
     <h1>Temperatura</h1>
     <a href="/grafico" class="btn-link">
         <button type="button" id="graficoButton">Graficos</button>
     </a>
+
+    <h1>Cadastro do sensor de temperatura</h1>
+
+    <form id="sensorForm" action="/cadastro" method="post">
+        <input type="hidden" id="sensorId">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nomeSensor" name="nomeSensor" class="form-input" required>
+
+        <label for="email">Latitude:</label>
+        <input type="text" id="latitude" name="latitude" class="form-input" required>
+
+        <label for="senha">Longitude:</label>
+        <input type="text" id="longitude" name="longitude" class="form-input" required>
+
+        <div id="formButtons">
+            <button type="submit" id="submitFormButton">Cadastrar</button>
+            <a href="/" class="btn-link">
+                <button type="button" id="voltarButton">Voltar</button>
+            </a>
+        </div>
+    </form>
+    
+    <footer>
+        <p>&copy; 2024 Projeto-Leitura-Temperatura. Todos os direitos reservados.</p>
+    </footer>
+
 </body>
 </html>
