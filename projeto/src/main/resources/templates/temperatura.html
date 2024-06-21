@@ -1,41 +1,91 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Temperatura</title>
-    <link rel="stylesheet" href="css/stylesTemperatura.css">
-</head>
-<body>
-    <h1>Temperatura</h1>
-    <a href="/grafico" class="btn-link">
-        <button type="button" id="graficoButton">Graficos</button>
-    </a>
-
-    <h1>Cadastro do sensor de temperatura</h1>
-
-    <form id="sensorForm" action="/cadastro" method="post">
-        <input type="hidden" id="sensorId">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nomeSensor" name="nomeSensor" class="form-input" required>
-
-        <label for="email">Latitude:</label>
-        <input type="text" id="latitude" name="latitude" class="form-input" required>
-
-        <label for="senha">Longitude:</label>
-        <input type="text" id="longitude" name="longitude" class="form-input" required>
-
-        <div id="formButtons">
-            <button type="submit" id="submitFormButton">Cadastrar</button>
-            <a href="/" class="btn-link">
-                <button type="button" id="voltarButton">Voltar</button>
-            </a>
+  <link rel="stylesheet" href="css/stylesTemperatura.css" />
+  </head>
+  <body>
+    <div class="content-wrapper">
+      <div class="left-section">
+        <h2>Cadastro do sensor de temperatura</h2>
+        <form id="sensorForm" action="/temperatura" method="post">
+          <input type="hidden" id="sensorId" />
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" class="form-input" required/>
+          <label for="email">Latitude:</label>
+          <input type="text" id="latitude" name="latitude" class="form-input" required/>
+          <label for="senha">Longitude:</label>
+          <input type="text" id="longitude" name="longitude" class="form-input" required/>
+          <div class="sensor-list">
+            <h3>Sensores cadastrados:</h3>
+            <ul>
+                <li th:each="sensor : ${sensores}">
+                    <span th:text="${sensor.nome}">Nome do sensor</span> - 
+                    <span th:text="${sensor.latitude}">Latitude</span> - 
+                    <span th:text="${sensor.longitude}">Longitude</span>
+                </li>
+            </ul>
         </div>
-    </form>
-    
-    <footer>
-        <p>&copy; 2024 Projeto-Leitura-Temperatura. Todos os direitos reservados.</p>
-    </footer>
 
-</body>
+          <div id="formButtons">
+            <button type="submit" id="submitFormButton">Cadastrar</button>
+            <button type="button" id="editFormButton">Editar</button>
+            <button type="button" id="deletFormButton">Excluir</button>
+            <a href="/" class="btn-link">
+              <button type="button" id="voltarButton">Voltar</button>
+            </a>
+          </div>
+        </form>
+      </div>
+
+      <div class="right-section">
+        <h2>Histórico de Temperatura</h2>
+        <div id="currentTemperature">
+          <p>25°C</p>
+        </div>
+
+        <div class="select-wrapper">
+          <label for="periodo">Escolha o Período:</label>
+          <select name="periodo" id="periodo">
+            <option value="3">Últimos 3 dias</option>
+            <option value="7">Últimos 7 dias</option>
+            <option value="14">Últimos 14 dias</option>
+            <option value="21">Últimos 21 dias</option>
+            <option value="30">Últimos 30 dias</option>
+          </select>
+
+          <div class="date-picker">
+            <label for="startDate">Data de Início:</label>
+            <input type="date" id="startDate" name="startDate" />
+
+            <label for="endDate">Data de Término:</label>
+            <input type="date" id="endDate" name="endDate" />
+          </div>
+
+          <div class="grafico-button-wrapper">
+            <a href="/grafico" class="btn-link">
+              <button type="button" id="graficoButton">Gráficos</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Formulario para consultar Temperatura -->
+      <form id="temperaturaForm" action="" method="post">
+        <input type="hidden" id="temperaturaId" />
+        <label for="sensor">Sensor:</label>
+        <input type="text" id="sensor" name="sensor" class="form-input"required/>
+        <label for="email">Temperatura:</label>
+        <input type="text" id="temperatura" name="temperatura" class="form-input" required/>
+        <button type="button" id="consultarTemperaturaButton">Consultar</button>
+      </form>
+    </div>
+
+    <footer>
+      <p>
+        &copy; 2024 Projeto-Leitura-Temperatura. Todos os direitos reservados.
+      </p>
+    </footer>
+  </body>
 </html>
