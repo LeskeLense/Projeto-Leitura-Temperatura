@@ -1,32 +1,43 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="css/stylesLogin.css">
 </head>
+
 <body>
-    <h1>Login</h1>
-    <form action="/login" method="post" th:object="${loginForm}" id="loginForm">
-        <input type="hidden" id="loginId">
-        <label for="email">E-mail:</label>
-        <input type="text" id="email" name="email" required>
+    <div th:if="${session.loggedUser != null}">
+        <h1>Realmente você que sair do site, <span th:text="${session.loggedUser.nome}"></span>!</h1>
+        <button class="button_voltar">
+            <a href="/logout">Logout</a>
+        </button>
+    </div>
+    <div th:unless="${session.loggedUser != null}">
+        <h1>Login</h1>
+        <form action="/login" method="post" th:object="${loginForm}" id="loginForm">
+            <input type="hidden" th:field="*{id}">
+            <label for="email">E-mail:</label>
+            <input type="text" id="email" name="email" th:field="*{email}" required>
 
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" th:field="*{senha}" required>
 
-        <div id="formButtons">
-            <button type="submit" id="submitFormButton">Entrar</button>
-            <a href="/" class="btn-link">
-                <button type="button" id="voltarButton">Voltar</button>
-            </a>
-        </div>
-        <p th:if="${error}" th:text="${error}" style="color: red;"></p>
-        <br>
-    </form>
+            <div id="formButtons">
+                <button type="submit" id="submitFormButton">Entrar</button>
+                <a href="/" class="btn-link">
+                    <button type="button" id="voltarButton">Voltar</button>
+                </a>
+            </div>
+            <p th:if="${error}" th:text="${error}" style="color: red;"></p>
+            <br>
+        </form>
+    </div>
     <footer>
         <p>&copy; 2024 Projeto-Leitura-Temperatura. Todos os direitos reservados.</p>
     </footer>
 </body>
+
 </html>
